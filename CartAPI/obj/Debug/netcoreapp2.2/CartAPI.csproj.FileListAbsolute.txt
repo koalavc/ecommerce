@@ -1,0 +1,14 @@
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.csproj.CoreCompileInputs.cache
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.AssemblyInfoInputs.cache
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.AssemblyInfo.cs
+C:\Users\vincent\Documents\projects\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.deps.json
+C:\Users\vincent\Documents\projects\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.runtimeconfig.json
+C:\Users\vincent\Documents\projects\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.runtimeconfig.dev.json
+C:\Users\vincent\Documents\projects\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.dll
+C:\Users\vincent\Documents\projects\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.pdb
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorAssemblyInfo.cache
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorAssemblyInfo.cs
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorTargetAssemblyInfo.cache
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.dll
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.pdb
+C:\Users\vincent\Documents\projects\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.csprojAssemblyReference.cache
