@@ -26,7 +26,18 @@ http.createServer((req, res) => {
             // console.log(`response in app.js: `,response);
             // res.write(response);
             // res.end();
-        })
+        });
+    } else if (urlObj.path === `/updateProduct/${id}`) {
+        apiCallFromNode.updateProduct(id, function(response){
+            res.write(response);
+            res.end();
+
+        });
+    } else if (urlObj.path === '/deleteProduct') {
+        apiCallFromNode.deleteProduct(function(response){
+            // res.write(response);
+            // res.end();
+        });
     }
 
         // res.end();

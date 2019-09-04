@@ -1,4 +1,5 @@
 ﻿using CartAPI.Data;
+using CartAPI.Dtos;
 using CartAPI.Models;
 using CartAPI.Services.Users;
 using System;
@@ -17,17 +18,17 @@ namespace CartAPI.Services
             _userRepository = userRepository;
         }
 
-        public User AddUser(User user)
-        {
-            var newUser = new User
-            {
-                Username = user.Username,
-                Email = user.Email,
-                Password = user.Password
-            };
-            _userRepository.Add(newUser);
-            return newUser;
-        }
+        //public RegistrationDto AddUser(RegistrationDto user)
+        //{
+        //    var newUser = new RegistrationDto
+        //    {
+        //        Username = user.Username,
+        //        Email = user.Email,
+        //        Password = user.Password
+        //    };
+        //    _userRepository.Add(newUser);
+        //    return newUser;
+        //}
 
         public Task<User> DeleteUser(User user)
         {

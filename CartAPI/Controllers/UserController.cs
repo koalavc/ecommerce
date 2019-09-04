@@ -26,12 +26,12 @@ namespace CartAPI.Controllers
             return Ok(users);
         }
 
-        [HttpPost("register")]
-        public IActionResult CreateUser([FromBody]User newUser)
-        {
-            var user = _userService.AddUser(newUser);
-            return Ok(user);
-        }
+        //[HttpPost("register")]
+        //public IActionResult CreateUser([FromBody]User newUser)
+        //{
+        //    var user = _userService.AddUser(newUser);
+        //    return Ok(user);
+        //}
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody]User user)

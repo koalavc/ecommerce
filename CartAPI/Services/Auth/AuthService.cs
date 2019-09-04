@@ -42,7 +42,6 @@ namespace CartAPI.Services.Auth
             {
                 Username = registrationDto.Username,
                 Email = registrationDto.Email,
-                Password = registrationDto.Password,
                 PasswordHash = newUser.PasswordHash,
                 PasswordSalt = newUser.PasswordSalt
             };
