@@ -66,7 +66,7 @@ exports.addProduct = (callback) => {
     }
 
     const req = http.request(options, (response) => {
-        console.log(`Status: ${response.statuscode}`);
+        console.log(`Status: ${response.statusCode}`);
         console.log(`Headers: ${JSON.stringify(response.headers)}`);
         response.setEncoding('utf8');
         response.on('data', (chunk) => {
@@ -86,18 +86,14 @@ exports.addProduct = (callback) => {
     req.end();
 }
 
-exports.deleteProduct = (callback) => {
-    const product = JSON.stringify({
-        Title: 'hello from node',
-        Price: 20,
-        ImageUrl: 'https://server.emulator.games/images/neo-geo/king-of-fighters-98.jpg',
-        Description: 'the final test from node'
-    })
+exports.deleteProduct = (callback,id) => {
 
+    const product = JSON.stringify(callback);
+    console.log(`From deleteProduct`, product);
     const options = {
         hostname: 'localhost',
         port: 50518,
-        path: _EXTERNAL_URL,
+        path: _EXTERNAL_URL_GET + id,
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -106,14 +102,14 @@ exports.deleteProduct = (callback) => {
     }
 
     const req = http.request(options, (response) => {
-        console.log(`Status: ${response.statuscode}`);
+        console.log(`Status: ${response.statusCode}`);
         console.log(`Headers: ${JSON.stringify(response.headers)}`);
         response.setEncoding('utf8');
         response.on('data', (chunk) => {
             console.log(`Body: ${chunk}`);
         });
         response.on('end', () => {
-            return callback(response);
+            return response;
             // console.log('No more data in response.');
         });
     })
@@ -126,9 +122,15 @@ exports.deleteProduct = (callback) => {
     req.end();
 }
 
-exports.updateProduct = (id, callback) => {
+exports.updateProduct = (id) => {
+    // console.log(getSingleProduct(id, callback));
 
+    // let singleProduct =  getSingleProductPromise(id);
+    // console.log(`Single product`, singleProduct);
+    let work = pleaseWork(id);
+    console.log(`work? `, work);
 }
+
 
 
 
