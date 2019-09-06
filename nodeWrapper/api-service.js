@@ -5,23 +5,34 @@ const url = require('url');
 _EXTERNAL_URL = 'http://localhost:50518/api/product'
 _EXTERNAL_URL_GET = `http://localhost:50518/api/product/`
 
-exports.getAllProducts = (callback) => {
-    http.get(_EXTERNAL_URL, (resp) => {
-        let data = '';
-    
-        // A chunk of data has been recieved.
-        resp.on('data', (chunk) => {
-            data += chunk;
+/*
+    The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
+*/ 
+exports.getAllProducts = async () => {
+    /*
+        The keyword await makes JavaScript wait until that promise settles and returns its result.
+    */ 
+    return await new Promise ((resolve, reject) => {
+        http.get(_EXTERNAL_URL, (resp) => {
+            let data = '';
+            // A chunk of data has been recieved.
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
+            
+            // The whole response has been received. Print out the result.
+            resp.on('end', () => {
+                try {
+                    return resolve(data);
+                }
+                catch (e){
+                    console.error(e.message);
+                }
+            // console.log(JSON.stringify(data));
+            });
+        }).on("error", (err) => {
+            console.log(`Error: ${err.message}`);
         });
-        
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-            return callback(data);
-        // console.log(JSON.stringify(data));
-        });
-    }).on("error", (err) => {
-        // console.log("Error: " + err.message);
-        console.log(`Error: ${err.message}`);
     });
 }
 
@@ -68,13 +79,13 @@ exports.getProductById = (id) => {
     })
 }
 
-exports.addProduct = (callback) => {
+exports.addProduct = () => {
     const product = JSON.stringify({
-        Title: 'hello from node',
+        Title: 'Mega Man Battle Network 3 White',
         Price: 20,
-        ImageUrl: 'https://server.emulator.games/images/neo-geo/king-of-fighters-98.jpg',
-        Description: 'the final test from node'
-    })
+        ImageUrl: 'https://vignette.wikia.nocookie.net/megaman/images/e/e3/MMBN3WhiteUSCover.jpg/revision/latest?cb=20130721232344',
+        Description: 'Mega Man Battle Network 3 is a video game developed by Capcom for the Game Boy Advance (GBA) handheld game console. It is the third game in the Mega Man Battle Network series, released in 2002 in Japan and 2003 in North America. While in North America and Europe, two complementary versions of the game - Blue and White - exist, marketed simultaneously, this was not the case in Japan. The game was released in a single version in this region, while a Black version containing bugfixes, new areas, optional bosses, and other improvements, was released some months after the original. It was released on the Wii Us Virtual Console in Japan on December 17, 2014 and in North America on May 14, 2015.'
+    });
 
     const options = {
         hostname: 'localhost',
@@ -87,25 +98,28 @@ exports.addProduct = (callback) => {
         }
     }
 
-    const req = http.request(options, (response) => {
-        console.log(`Status: ${response.statusCode}`);
-        console.log(`Headers: ${JSON.stringify(response.headers)}`);
-        response.setEncoding('utf8');
-        response.on('data', (chunk) => {
-            console.log(`Body: ${chunk}`);
+    return new Promise ((resolve, reject) => {
+        const req = http.request(options, (response) => {
+            console.log(`Status: ${response.statusCode}`);
+            console.log(`Headers: ${JSON.stringify(response.headers)}`);
+            response.setEncoding('utf8');
+            response.on('data', (chunk) => {
+                // console.log(`Body: ${chunk}`);
+            });
+            response.on('end', () => {
+                // console.log(`the response`,response);
+                return resolve(response);
+                // console.log('No more data in response.');
+            });
+        })
+        
+        req.on('error', (err) => {
+            console.error(`problem with request: ${err.message}`);
         });
-        response.on('end', () => {
-            return callback(response);
-            // console.log('No more data in response.');
-        });
-    })
     
-    req.on('error', (err) => {
-        console.error(`problem with request: ${err.message}`);
-    });
-
-    req.write(product);
-    req.end();
+        req.write(product);
+        req.end();
+    })
 }
 
 exports.deleteProduct = (callback,id) => {
@@ -145,8 +159,6 @@ exports.deleteProduct = (callback,id) => {
 }
 
 exports.updateProduct = (id) => {
-    // const product = JSON.stringify(callback);
-
     const product = JSON.stringify({
         Title: 'Mega Man Battle Network',
         Price: 4000,

@@ -8,10 +8,12 @@ http.createServer((req, res) => {
     let id = urlObj.pathname.split("/")[2];
 
     if (urlObj.path === '/') {
-        apiService.getAllProducts(function(response){
-            res.write(response);
-            res.end();
-        });
+        apiService.getAllProducts()
+            .then(result => {
+                res.write(result);
+                res.end();
+            })
+            .catch(err => console.log(`Error: `,err));
     } else if (urlObj.path === `/getById/${id}`) {
         console.log(`id within getById route: `, id);
         apiService.getProductById(id).then(result => {
@@ -19,11 +21,13 @@ http.createServer((req, res) => {
             res.end();
         });
     } else if (urlObj.path === '/addProduct') {
-        apiService.addProduct(function(response){
-            // console.log(`response in app.js: `,response);
-            // res.write(response);
-            // res.end();
-        });
+        apiService.addProduct()
+            .then(result => {
+                let stringifyResult = JSON.stringify(result);
+                res.write(stringifyResult);
+                res.end();
+            })
+            .catch(err => console.log(err));
     } else if (urlObj.path === `/updateProduct/${id}`) {
         apiService.updateProduct(id);
     } else if (urlObj.path === `/deleteProduct/${id}`) {
