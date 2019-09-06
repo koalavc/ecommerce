@@ -8,12 +8,23 @@ http.createServer((req, res) => {
     let id = urlObj.pathname.split("/")[2];
 
     if (urlObj.path === '/') {
-        apiService.getAllProducts()
-            .then(result => {
+        console.log(`Route hit`);
+        // apiService.getAllProducts()
+        //     .then(result => {
+        //         res.write(result);
+        //         res.end();
+        //     })
+        //     .catch(err => console.log(`Error: `,err));
+
+        const asyncGetAll = async () => {
+            try { 
+                const result = await apiService.getAllProducts();
                 res.write(result);
-                res.end();
-            })
-            .catch(err => console.log(`Error: `,err));
+                return res.end();
+            } catch (err) {console.log(err)}
+        }
+
+        return asyncGetAll();
     } else if (urlObj.path === `/getById/${id}`) {
         console.log(`id within getById route: `, id);
         apiService.getProductById(id).then(result => {
