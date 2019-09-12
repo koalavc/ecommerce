@@ -19,9 +19,9 @@ namespace CartAPI.Services.Auth
 
         public async Task<User> Login(string username, string password)
         {
-            //var user = await _userRepository.Login(username, password);
+            var user = await _userRepository.Login(username, password);
 
-            throw new Exception();
+            return user;
         }
 
         public async Task<User> Register(RegistrationDto registrationDto)

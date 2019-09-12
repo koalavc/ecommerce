@@ -15,7 +15,7 @@ namespace CartAPI.Data
         //Task<bool> SaveAll();
         Task<List<User>> GetUsers();
         Task<User> GetUser(int id);
-        //Task<User> Login(string username, string password);
+        Task<User> Login(string username, string password);
         Task<bool> UserExists(string username);
         //Task<User> Register(RegistrationDto registrationDto);
         //void CreateHashPassword(string password, out byte[] passwordHash, out byte[] passwordSalt);
