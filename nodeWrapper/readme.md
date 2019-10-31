@@ -1,4 +1,4 @@
-#Node Wrapper
+#NodeWrapper
 
 This is a node wrapper for a .Net Core REST API.
 
