@@ -18,7 +18,6 @@ C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\Ca
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.dll
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\CartAPI.pdb
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.csprojAssemblyReference.cache
-C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.csproj.CoreCompileInputs.cache
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorAssemblyInfo.cache
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorAssemblyInfo.cs
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.AssemblyInfoInputs.cache
@@ -26,3 +25,6 @@ C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\Ca
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.RazorTargetAssemblyInfo.cache
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.dll
 C:\Users\vincent\Documents\projects\ecommerce\CartAPI\obj\Debug\netcoreapp2.2\CartAPI.pdb
+C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\vincent\Documents\projects\ecommerce\CartAPI\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
