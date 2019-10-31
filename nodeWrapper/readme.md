@@ -1,6 +1,6 @@
 # Node Wrapper
 
-This is a node wrapper for a .Net Core REST API.
+This is a node wrapper for a .Net Core REST API. Have the .NET Core REST API up and running and you can hit the endpoints though Node.
 
 ### How to run
 `node app.js`
